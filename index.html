@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ParentTeacher Connect</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="brand">
+            <i class="fas fa-users"></i>
+            ParentTeacher <span>Connect</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#parents">Parents</a></li>
+            <li><a href="#teachers">Teachers</a></li>
+            <li><a href="#students">Students</a></li>
+            <li><a href="#messages">Messages</a></li>
+            <li><a href="#academic">Academic</a></li>
+            <li><a href="#attendance">Attendance</a></li>
+            <li><a href="#fees">Fees</a></li>
+            <li><a href="#meetings">Meetings</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+
+        <!-- Welcome Section -->
+        <section class="welcome">
+            <div>
+                <p class="subtitle">SCHOOL COMMUNICATION PLATFORM</p>
+                <h1>Welcome to ParentTeacher Connect!</h1>
+                <p>
+                    Bringing parents and teachers together to support
+                    every student's success.
+                </p>
+            </div>
+
+            <div class="welcome-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+        </section>
+
+        <!-- Dashboard -->
+        <section id="dashboard" class="section">
+            <div class="section-heading">
+                <div>
+                    <h2>Dashboard Overview</h2>
+                    <p>Here's what's happening at your school.</p>
+                </div>
+
+                <span class="date-badge" id="currentDate"></span>
+            </div>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon pink">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <p>Total Students</p>
+                    <h3 id="studentCount">3</h3>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <p>Total Teachers</p>
+                    <h3 id="teacherCount">2</h3>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <p>Messages</p>
+                    <h3 id="messageCount">2</h3>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <p>Upcoming Meetings</p>
+                    <h3 id="meetingCount">1</h3>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Parents -->
+        <section id="parents" class="section">
+            <div class="section-heading">
+                <div>
+                    <h2><i class="fas fa-user-friends"></i> Parent Registration</h2>
+                    <p>Register and manage parent information.</p>
+                </div>
+            </div>
+
+            <form id="parentForm" class="form-grid">
+
+                <input type="text" id="parentName"
+                       placeholder="Parent Name" required>
+
+                <input type="email" id="parentEmail"
+                       placeholder="Email Address" required>
+
+                <input type="tel" id="parentPhone"
+                       placeholder="Phone Number" required>
+
+                <input type="text" id="childName"
+                       placeholder="Child's Name" required>
+
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-plus"></i> Register Parent
+                </button>
+
+            </form>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parent Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Child</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="parentTable"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Teachers -->
+        <section id="teachers" class="section">
+            <div class="section-heading">
+                <div>
+                    <h2><i class="fas fa-chalkboard-teacher"></i> Teacher Registration</h2>
+                    <p>Manage teacher details and subjects.</p>
+                </div>
+            </div>
+
+            <form id="teacherForm" class="form-grid">
+
+                <input type="text" id="teacherName"
+                       placeholder="Teacher Name" required>
+
+                <input type="email" id="teacherEmail"
+                       placeholder="Email Address" required>
+
+                <input type="text" id="teacherSubject"
+                       placeholder="Subject" required>
+
+                <input type="text" id="teacherClass"
+                       placeholder="Assigned Class" required>
+
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-plus"></i> Register Teacher
+                </button>
+
+            </form>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Teacher Name</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Class</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="teacherTable"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Students -->
+        <section id="students" class="section">
+            <div class="section-heading">
+                <div>
+                    <h2><i class="fas fa-user-graduate"></i> Student Profiles</h2>
+                    <p>View student academic information.</p>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Class</th>
+                            <th>Average Marks</th>
+                            <th>Attendance</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentTable"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Messages -->
+        <section id="messages" class="section">
+            <div class="section-heading">
+                <div>
+                    <h2><i class="fas fa-comments"></i> Messaging System</h2>
+                    <p>Send messages between parents and teachers.</p>
+                </div>
+            </div>
+
+            <form id="messageForm" class="form-grid">
+
+                <input type="text" id="messageSender"
+                       placeholder="Sender Name" required>
+
+                <input type="text" id="messageReceiver"
+                       placeholder="Receiver Name" required>
+
+                <input type="text" id="messageSubject"
+                       placeholder="Message Subject" required>
+
+                <textarea id="messageBody"
+                          placeholder="Write your message..."
+                          required></textarea>
+
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+
+            </form>
+
+            <div id="messageList" class="message-list"></div>
+        </section>
+
+        <!-- Academic -->
+        <section id="academic" class="section">
+            <div class="section-heading">
+                <div>
+                    <h2><i class="fas fa-book-open"></i> Academic Progress</h2>
+                    <p>Record marks and track academic performance.</p>
+                </div>
+            </div>
+
+            <form id="gradeForm" class="form-grid">
+
+                <input type="text" id="gradeStudent"
+                       placeholder="Student Name" required>
+
+                <input type="text" id="gradeSubject"
+                       placeholder="Subject" required>
+
+                <input type="number" id="gradeMarks"
+                       placeholder="Marks (0-100)"
+                       min="0" max="100" required>
+
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-plus"></i> Add Grade
+                </button>
+
+            </form>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Subject</th>
+                            <th>Marks</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="gradeTable"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Attendance -->
+        <section id="attendance" class="section">
+            <div class="section-heading">
+                <div>
+                    <h2><i class="fas fa-calendar-alt"></i> Attendance Tracking</h2>
+                    <p>Record daily student attendance.</p>
+                </div>
+            </div>
+
+            <form id="attendanceForm" class="form-grid">
+
+                <input type="text" id="attendanceStudent"
+                       placeholder="Student Name" required>
+
+                <input type="date" id="attendanceDate" required>
+
+                <select id="attendanceStatus" required>
+                    <option value="Present">Present</option>
+                    <option value="Absent">Absent</option>
+                    <option value="Late">Late</option>
+                </select>
+
+                <button type="submit" class="btn-primary">
+                    Save Attendance
+                </button>
+
+            </form>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="attendanceTable"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Fees -->
+        <section id="fees" class="section">
+            <div class="section-heading">
+                <div>
+                    <h2><i class="fas fa-wallet"></i> Fee Management</h2>
+                    <p>Track school fees and payment status.</p>
+                </div>
+            </div>
+
+            <form id="feeForm" class="form-grid">
+
+                <input type="text" id="feeStudent"
+                       placeholder="Student Name" required>
+
+                <input type="text" id="feeType"
+                       placeholder="Fee Type" required>
+
+                <input type="number" id="feeAmount"
+                       placeholder="Amount in ₹"
+                       min="1" required>
+
+                <select id="feeStatus">
+                    <option value="Pending">Pending</option>
+                    <option value="Paid">Paid</option>
+                </select>
+
+                <button type="submit" class="btn-primary">
+                    Add Fee Record
+                </button>
+
+            </form>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Fee Type</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="feeTable"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Events -->
+        <section id="events" class="section">
+            <div class="section-heading">
+                <div>
+                    <h2><i class="fas fa-bullhorn"></i> Events & Announcements</h2>
+                    <p>Share important school updates.</p>
+                </div>
+            </div>
+
+            <form id="eventForm" class="form-grid">
+
+                <input type="text" id="eventTitle"
+                       placeholder="Event Title" required>
+
+                <input type="date" id="eventDate" required>
+
+                <input type="text" id="eventDescription"
+                       placeholder="Description" required>
+
+                <button type="submit" class="btn-primary">
+                    Publish Announcement
+                </button>
+
+            </form>
+
+            <div id="eventList" class="event-list"></div>
+        </section>
+
+        <!-- Meetings -->
+        <section id="meetings" class="section">
+            <div class="section-heading">
+                <div>
+                    <h2><i class="fas fa-calendar-check"></i> Meeting Scheduler</h2>
+                    <p>Schedule parent-teacher meetings.</p>
+                </div>
+            </div>
+
+            <form id="meetingForm" class="form-grid">
+
+                <input type="text" id="meetingParent"
+                       placeholder="Parent Name" required>
+
+                <input type="text" id="meetingTeacher"
+                       placeholder="Teacher Name" required>
+
+                <input type="date" id="meetingDate" required>
+
+                <input type="time" id="meetingTime" required>
+
+                <input type="text" id="meetingAgenda"
+                       placeholder="Meeting Agenda" required>
+
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-calendar-plus"></i> Schedule Meeting
+                </button>
+
+            </form>
+
+            <div id="meetingList" class="event-list"></div>
+        </section>
+
+        <!-- Reports -->
+        <section id="reports" class="section">
+            <div class="section-heading">
+                <div>
+                    <h2><i class="fas fa-chart-bar"></i> Reports</h2>
+                    <p>View an overview of school records.</p>
+                </div>
+            </div>
+
+            <div class="report-grid">
+                <div class="report-card">
+                    <h3>Students</h3>
+                    <p id="reportStudents">0</p>
+                </div>
+
+                <div class="report-card">
+                    <h3>Teachers</h3>
+                    <p id="reportTeachers">0</p>
+                </div>
+
+                <div class="report-card">
+                    <h3>Grades Recorded</h3>
+                    <p id="reportGrades">0</p>
+                </div>
+
+                <div class="report-card">
+                    <h3>Attendance Records</h3>
+                    <p id="reportAttendance">0</p>
+                </div>
+            </div>
+
+            <button id="exportReport" class="btn-primary">
+                <i class="fas fa-download"></i> Export Report as CSV
+            </button>
+        </section>
+
+    </main>
+
+    <footer>
+        <h3>ParentTeacher Connect</h3>
+        <p>Building stronger partnerships for student success.</p>
+        <p>© 2026 ParentTeacher Connect | Student Code: DAS-SCH-002</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
